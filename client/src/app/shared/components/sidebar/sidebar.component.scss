@@ -1,0 +1,121 @@
+@import "../../../../styles/_variables";
+
+.sidebar {
+    box-sizing: border-box;
+    padding-left: 1em;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: $color-accent;
+    color: $color-secondary;
+    position: relative;
+    z-index: 0;
+    transition: all 0.2s;
+}
+
+a {
+    text-decoration: none;
+    color: $color-secondary;
+}
+
+.open {
+
+    .selected::before {
+        background-color: $color-secondary;
+        color: $color-accent;
+        height: 4.5rem;
+        width: 100%;
+    }
+
+    .selected a {
+        color: $color-accent;
+    }
+    span {
+        padding: 0 1.5rem;
+    }
+}
+
+.closed {
+    padding-right: 1rem;
+    align-items: center;
+
+    .selected {
+        background-color: $color-secondary;
+        color: $color-accent;
+        border-radius: 50%;
+    }
+    li {
+        text-align: center;
+        padding: 1.5rem 1.7rem;
+
+        .page-name {
+            display: none;
+        }
+    }
+}
+
+ul {
+    font-size: 1.5rem;
+    font-weight: bold;
+    list-style: none;
+    padding: 10vh 0 0 0;
+    position: relative;
+
+    li {
+        white-space: nowrap;
+        margin-bottom: 0.5rem;
+        padding: 1.5rem 0;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+
+
+        &::before {
+            right: 0;
+            white-space: normal;
+            content: "";
+            display: block;
+            position: absolute;
+            z-index: -1;
+            width: 0;
+            transform: translateY(-1.5rem);
+            background-color: transparent;
+            border-top-left-radius: 3rem;
+            border-bottom-left-radius: 3rem;
+            transition: width 0.2s ease-in-out;
+        }
+    }
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    color: $color-white;
+    margin: 0 0 3rem 0;
+
+     img {
+        object-fit: cover;
+        border-radius: 50%;
+        height: 5rem;
+        width: 5rem;
+    }
+    div {
+        margin-left: 1em;
+
+        p {
+            margin: 0;
+            font-weight: bold;
+        }
+        a {
+            text-decoration: none;
+            color: $color-white;
+        }
+    }
+}
+
+@media(max-width: 500px) {
+    .closed {
+        display: none;
+    }
+}

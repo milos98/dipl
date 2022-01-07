@@ -1,0 +1,17 @@
+<div class="sidebar" [ngClass]="open ? 'open' : 'closed'">
+    <div class="links">
+        <nav>
+            <ul>
+                <li [ngClass]=" route==='/dashboard' ? 'selected' : ''"><a routerLink="/dashboard"><span class="emoji">🚀</span> <span class="page-name">Dashboard</span></a></li>
+                <li [ngClass]=" route==='/new-lead' ? 'selected' : ''"><a routerLink="/new-lead"><span class="emoji">✍️️</span> <span class="page-name">Add a new lead</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="profile">
+        <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/socialmedia/apple/271/panda_1f43c.png" alt="">
+        <div [hidden]="!open" class="profile-info">
+            <p class="name">Pixel panda</p>
+            <a href="/">Sign out</a>
+        </div>
+    </div>
+</div>

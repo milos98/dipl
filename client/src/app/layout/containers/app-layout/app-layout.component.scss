@@ -1,0 +1,6 @@
+@import "src/styles/variables";
+
+div {
+    overflow-y: auto;
+    background-color: $color-secondary;
+}
