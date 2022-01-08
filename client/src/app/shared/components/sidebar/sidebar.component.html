@@ -2,8 +2,18 @@
     <div class="links">
         <nav>
             <ul>
-                <li [ngClass]=" route==='/dashboard' ? 'selected' : ''"><a routerLink="/dashboard"><span class="emoji">🚀</span> <span class="page-name">Dashboard</span></a></li>
-                <li [ngClass]=" route==='/new-lead' ? 'selected' : ''"><a routerLink="/new-lead"><span class="emoji">✍️️</span> <span class="page-name">Add a new lead</span></a></li>
+                <li [ngClass]=" pageName==='Dashboard' ? 'selected' : ''">
+                    <a routerLink="/dashboard">
+                        <span class="emoji">🚀</span>
+                        <span class="page-name">Dashboard</span>
+                    </a>
+                </li>
+                <li [ngClass]=" pageName==='Add a new lead' ? 'selected' : ''">
+                    <a routerLink="/new-lead">
+                        <span class="emoji">✍️️</span>
+                        <span class="page-name">Add a new lead</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

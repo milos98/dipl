@@ -9,17 +9,5 @@ import { Router } from '@angular/router';
 })
 export class SidebarComponent {
     @Input() open = true;
-
-    route = '/dashboard';
-
-    constructor(private location: Location, private router: Router) {
-        router.events.subscribe(() => {
-            if(location.path() === '') {
-                this.route = '/dashboard';
-            } else {
-                this.route = location.path();
-            }
-        })
-    }
-
+    @Input() pageName = '';
 }

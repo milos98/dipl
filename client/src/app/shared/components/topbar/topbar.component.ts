@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
+
 @Component({
   selector: 'app-topbar',
   templateUrl: './topbar.component.html',
@@ -7,7 +8,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class TopbarComponent {
     @Input() openSidebar = true;
-    @Input() pageName = 'Dashboard';
+    @Input() pageName = '';
     @Output() toggleSidebar = new EventEmitter<void>();
 
     toggle() {

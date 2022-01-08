@@ -1,7 +1,7 @@
 <div class="app">
-    <app-sidebar [open]="sidebarOpen"></app-sidebar>
+    <app-sidebar [open]="sidebarOpen" [pageName]="pageName"></app-sidebar>
     <div>
-        <app-topbar [openSidebar]="sidebarOpen" (toggleSidebar)="toggleSidebar()"></app-topbar>
+        <app-topbar [openSidebar]="sidebarOpen" [pageName]="pageName" (toggleSidebar)="toggleSidebar()"></app-topbar>
         <app-layout></app-layout>
     </div>
 </div>
