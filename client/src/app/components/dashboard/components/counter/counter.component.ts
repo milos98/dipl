@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { CategoryConstants } from "../../../../shared/constants/categories";
 
 @Component({
   selector: 'app-counter',
@@ -26,13 +27,13 @@ export class CounterComponent implements OnInit, OnChanges {
 
   stylize() {
     switch (this.category) {
-      case 'prospecting': this.image = 'assets/prospecting';
+      case CategoryConstants.prospecting: this.image = 'assets/prospecting';
         break;
-      case 'qualified' : this.image = 'assets/mining-pick';
+      case CategoryConstants.qualified : this.image = 'assets/mining-pick';
         break;
-      case 'quoting': this.image = 'assets/pricetag';
+      case CategoryConstants.quoting: this.image = 'assets/pricetag';
         break;
-      case 'won/closed' : this.image = 'assets/handshake';
+      case CategoryConstants.won_closed : this.image = 'assets/handshake';
         break;
       default : this.image = '';
     }
