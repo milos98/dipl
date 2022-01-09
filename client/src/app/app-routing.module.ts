@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AppLayoutComponent} from "./layout/containers/app-layout/app-layout.component";
+import { AppLayoutComponent } from "./layout/containers/app-layout/app-layout.component";
+import { EmployeeComponent } from "./components/dashboard/containers/employeee/employee.component"
 
 const routes: Routes = [
     {
         path: 'dashboard',
-        component: AppLayoutComponent,
+        component: EmployeeComponent,
     },
     {
         path: 'new-lead',

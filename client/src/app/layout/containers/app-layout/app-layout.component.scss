@@ -1,6 +1,11 @@
 @import "src/styles/variables";
 
 div {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
     overflow-y: auto;
-    background-color: $color-secondary;
+    height: calc(100% - 5rem);
+    padding: 4rem 3rem;
+    background-color: $color-primary;
 }
