@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+
 import { EmployeeComponent } from './containers/employeee/employee.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { FilterComponent } from './components/filter/filter.component';
 
 
 
 @NgModule({
   declarations: [
     EmployeeComponent,
-    CounterComponent
+    CounterComponent,
+    FilterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule
   ],
   exports: [
       EmployeeComponent
