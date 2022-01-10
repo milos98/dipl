@@ -6,10 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-table-wrapper.component.scss']
 })
 export class EmployeeTableWrapperComponent implements OnInit {
+  dataSet = [
+    {
+      firstName: 'Jonh',
+      lastName: 'Doe',
+      phone: '+1 (456) 094 8574',
+      email: 'john.doe@mail.com',
+      status: 'Prospecting',
+      followUpDate: '13-01-2022',
+      pipeline: 13000
+    }
+  ];
+
+  totalPipeline = 0;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.dataSet.forEach((obj) => {
+      this.totalPipeline += obj.pipeline;
+    })
   }
-
 }

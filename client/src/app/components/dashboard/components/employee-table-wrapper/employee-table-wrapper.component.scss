@@ -1,5 +1,13 @@
 @import "src/styles/variables";
 
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
 div {
   background-color: $color-secondary;
   margin: 4rem 0;
@@ -15,11 +23,21 @@ div {
     justify-content: space-between;
 
     p {
+      box-sizing: border-box;
       margin: 0 0 1rem 0;
-      padding: 0;
+      padding: 0 1rem 0 0 ;
       font-weight: bold;
       width: 11rem;
     }
+  }
+
+  .table-footer {
+    box-sizing: border-box;
+    padding-top: 1rem;
+  }
+
+  hr {
+    margin: 0;
   }
 }
 

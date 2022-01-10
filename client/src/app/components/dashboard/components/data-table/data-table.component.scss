@@ -1,0 +1,48 @@
+@import "src/styles/variables";
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.status {
+  display: inline-block;
+  width: 0.7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 0.5rem 0 0;
+  padding: 0;
+}
+
+.prospecting {
+  background-color: $color-accent;
+}
+
+table {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: 1px solid $color-white;
+
+    td {
+      box-sizing: border-box;
+      padding: 1rem 1rem 1rem 0;
+      font-weight: bold;
+      width: 11rem;
+
+      button {
+        color: $color-white;
+        background-color: $color-accent;
+        border: 0;
+        border-radius: 1rem;
+        padding: 0.6rem;
+      }
+    }
+  }
+}
