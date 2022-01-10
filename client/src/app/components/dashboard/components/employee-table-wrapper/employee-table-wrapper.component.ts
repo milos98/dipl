@@ -12,7 +12,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       lastName: 'Doe',
       phone: '+1 (456) 094 8574',
       email: 'john.doe@mail.com',
-      status: 'Prospecting',
+      status: 'prospecting',
       followUpDate: '13-01-2022',
       pipeline: 13000
     }
