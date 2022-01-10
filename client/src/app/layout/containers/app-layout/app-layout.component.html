@@ -1,3 +1,10 @@
-<div>
-    <router-outlet></router-outlet>
+
+<div class="app">
+    <app-sidebar [open]="sidebarOpen" [pageName]="pageName"></app-sidebar>
+    <div>
+        <app-topbar [openSidebar]="sidebarOpen" [pageName]="pageName" (toggleSidebar)="toggleSidebar()"></app-topbar>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>

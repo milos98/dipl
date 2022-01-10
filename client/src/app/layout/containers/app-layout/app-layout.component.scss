@@ -1,11 +1,23 @@
 @import "src/styles/variables";
 
-div {
+.app {
+    height: 100vh;
     display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    overflow-y: auto;
-    height: calc(100% - 5rem);
-    padding: 4rem 3rem;
-    background-color: $color-primary;
+    flex-direction: row;
+
+    div {
+        width: 100%;
+        overflow-y: auto;
+
+        div {
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: calc(100% - 5rem);
+            padding: 4rem 3rem;
+            background-color: $color-primary;
+            max-width: 100vw;
+        }
+    }
 }
