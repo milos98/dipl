@@ -16,8 +16,9 @@ div {
   justify-content: space-between;
 }
 
-@media (max-width: 100px) {
+@media (max-width: 880px) {
   .counters {
+    flex-direction: column;
     justify-content: space-evenly;
   }
 }

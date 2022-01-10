@@ -39,3 +39,15 @@ p {
 img {
   height: 4.5rem;
 }
+
+@media (max-width: 880px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 24rem;
+  }
+}

@@ -24,11 +24,48 @@ form {
     border-width: 0 0 1px 0;
     color: $color-white;
     border-color: $color-white;
-    width: 12rem;
+    width: 13%;
     margin: 1rem;
+    padding: 0;
 
     &::placeholder {
       color: $color-white;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  form {
+    justify-content: center;
+
+    input {
+      width: 26%
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  form {
+    justify-content: center;
+
+    input {
+      width: 40%
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  form {
+    justify-content: center;
+
+    input {
+      width: 100%
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  form {
+    justify-content: center;
   }
 }
