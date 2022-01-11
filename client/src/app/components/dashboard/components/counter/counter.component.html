@@ -1,7 +1,7 @@
-<div class="container" [ngClass]="selected ? 'selected' : ''">
+<div class="container" [ngClass]="data.selected ? 'selected' : ''">
     <div>
-        <p class="number">{{count}}</p>
-        <p class="name">{{category}}</p>
+        <p class="number">{{ data.count }}</p>
+        <p class="name">{{ data.categoryFriendlyName || data.category }}</p>
     </div>
     <img [src]="image" alt="">
 </div>

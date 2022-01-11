@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeComponent implements OnInit {
 
+  selectedCategory = '';
   data = [
     {
       count: 69,
@@ -25,7 +26,8 @@ export class EmployeeComponent implements OnInit {
     },
     {
       count: 28,
-      category: 'won/closed',
+      category: 'won_closed',
+      categoryFriendlyName: 'won/closed',
       selected: false
     }
   ]
@@ -34,10 +36,16 @@ export class EmployeeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filter(counter: any) {
+  toggleCategoryFilter(counter: any) {
+
+    if(this.selectedCategory === '' || this.selectedCategory !== counter.category) {
+      this.selectedCategory = counter.category;
+    } else {
+      this.selectedCategory = '';
+    }
+
     this.data.forEach( d => {
-      d.selected = d.category === counter.category;
+      d.selected = d.category === this.selectedCategory;
     })
   }
-
 }

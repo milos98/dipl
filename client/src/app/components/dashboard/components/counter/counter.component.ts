@@ -7,9 +7,7 @@ import { CategoryConstants } from "../../../../shared/constants/categories";
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent implements OnInit, OnChanges {
-  @Input() count : number = 0;
-  @Input() category : string = '';
-  @Input() selected : boolean = false;
+  @Input() data: any;
 
   image = '';
 
@@ -26,7 +24,7 @@ export class CounterComponent implements OnInit, OnChanges {
   }
 
   stylize() {
-    switch (this.category) {
+    switch (this.data.category) {
       case CategoryConstants.prospecting: this.image = 'assets/prospecting';
         break;
       case CategoryConstants.qualified : this.image = 'assets/mining-pick';
@@ -37,7 +35,7 @@ export class CounterComponent implements OnInit, OnChanges {
         break;
       default : this.image = '';
     }
-    if(this.selected) {
+    if(this.data.selected) {
       this.image = this.image + '-white.png';
     } else {
       this.image = this.image + '-red.png';

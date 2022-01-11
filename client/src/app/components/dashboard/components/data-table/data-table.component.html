@@ -1,12 +1,12 @@
 <table>
     <tr *ngFor="let row of data">
-        <td>{{ row.firstName }}</td>
-        <td>{{ row.lastName }}</td>
-        <td>{{ row.phone }}</td>
-        <td>{{ row.email }}</td>
-        <td class="capitalise"> <span class="status" [ngClass]="row.status"></span>{{ row.status }}</td>
-        <td class="center">{{ row.followUpDate }}</td>
-        <td class="right">{{ row.pipeline }} $</td>
-        <td class="center"><button>Details</button></td>
+            <td>{{ row.firstName }}</td>
+            <td>{{ row.lastName }}</td>
+            <td>{{ row.phone }}</td>
+            <td>{{ row.email }}</td>
+            <td class="capitalise"> <span class="status" [ngClass]="row.status"></span>{{ row.statusFriendlyName || row.status }}</td>
+            <td class="center">{{ row.followUpDate }}</td>
+            <td class="right">{{ row.pipeline }} $</td>
+            <td class="center"><button>Details</button></td>
     </tr>
 </table>
