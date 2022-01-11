@@ -1,12 +1,12 @@
 <table>
     <tr *ngFor="let row of data">
-            <td>{{ row.firstName }}</td>
-            <td>{{ row.lastName }}</td>
-            <td>{{ row.phone }}</td>
-            <td>{{ row.email }}</td>
-            <td class="capitalise"> <span class="status" [ngClass]="row.status"></span>{{ row.statusFriendlyName || row.status }}</td>
+            <td class="hidden-900">{{ row.firstName }}</td>
+            <td class="hidden-650">{{ row.lastName }}</td>
+            <td class="hidden-1400">{{ row.phone }}</td>
+            <td class="hidden-1100">{{ row.email }}</td>
+            <td class="hidden-1650 capitalise"> <span class="status" [ngClass]="row.status"></span>{{ row.statusFriendlyName || row.status }}</td>
             <td class="center">{{ row.followUpDate }}</td>
-            <td class="right">{{ row.pipeline }} $</td>
+            <td class="hidden-1100 right">{{ row.pipeline }} $</td>
             <td class="center"><button>Details</button></td>
     </tr>
 </table>

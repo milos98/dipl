@@ -62,3 +62,48 @@ table {
     }
   }
 }
+
+@media (max-width: 1650px) {
+  div > div > p {
+    width: 10rem;
+  }
+  .hidden-1650 {
+    display: none;
+  }
+}
+
+@media (max-width: 1400px) {
+  div > div > p {
+    width: 10rem;
+  }
+  .hidden-1400 {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  div > div > p {
+    width: 10rem;
+  }
+  .hidden-1100 {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  div > div > p {
+    width: 8rem;
+  }
+  .hidden-900 {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  div > div > p {
+    width: 8rem;
+  }
+  .hidden-650 {
+    display: none;
+  }
+}
