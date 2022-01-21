@@ -1,0 +1,65 @@
+<div class="lead-info-wrapper">
+    <h2>Contact information</h2>
+    <div class="row">
+        <div class="input-group">
+            <label for="first-name">First name</label>
+            <input id="first-name" name="first-name" type="text">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text">
+        </div>
+        <div class="input-group">
+            <label for="last-name">Last name</label>
+            <input id="last-name" name="last-name" type="text">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="text">
+            <label for="contact-method">Contact mehod</label>
+            <select id="contact-method" name="contact-method">
+                <option disabled selected>Select preferred contact method</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+            </select>
+        </div>
+    </div>
+    <h2>Company information</h2>
+    <div class="row">
+        <div class="input-group">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text">
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text">
+            <label for="city">City</label>
+            <input id="city" name="city" type="text">
+        </div>
+        <div class="input-group">
+            <label for="website">Website</label>
+            <input id="website" name="website" type="text">
+            <label for="floor">Floor</label>
+            <input id="floor" name="floor" type="text">
+            <label for="zip">Zip code</label>
+            <input id="zip" name="zip" type="text">
+        </div>
+    </div>
+    <h2>Deal information</h2>
+    <div class="row">
+        <div class="input-group">
+            <label for="follow-up-date">Follow-up date</label>
+            <input id="follow-up-date" name="follow-up-date" type="date">
+            <label for="deal-stage">Deal stage</label>
+            <select id="deal-stage" name="deal-stage">
+                <option disabled selected>Select the current stage of the lead</option>
+                <option value="prospecting">Prospecting</option>
+                <option value="qualified">Qualified</option>
+                <option value="quoting">Qualified</option>
+                <option value="won_closed">Won/Closed</option>
+            </select>
+            <label for="pipeline">Pipeline</label>
+            <input id="pipeline" name="pipeline" type="number" min="0" step="any">
+        </div>
+        <div class="input-group">
+            <label for="notes">Notes</label>
+            <textarea name="notes" id="notes"></textarea>
+        </div>
+    </div>
+</div>
