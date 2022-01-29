@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LeadModel } from "../../../../shared/models/lead.model";
 
 @Component({
   selector: 'app-employee-table-wrapper',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeTableWrapperComponent implements OnInit {
 
-  dataSet = [
+  dataSet: LeadModel[] = [
     {
       firstName: 'Jonh',
       lastName: 'Doe',
       phone: '+1 (456) 094 8574',
       email: 'john.doe@mail.com',
       status: 'prospecting',
+      statusFriendlyName: 'prospecting',
       followUpDate: '13-01-2022',
       pipeline: 13000
     },
@@ -23,6 +25,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       phone: '+1 (456) 094 8574',
       email: 'john.doe@mail.com',
       status: 'quoting',
+      statusFriendlyName: 'quoting',
       followUpDate: '13-01-2022',
       pipeline: 13000
     },
@@ -32,6 +35,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       phone: '+1 (456) 094 8574',
       email: 'john.doe@mail.com',
       status: 'qualified',
+      statusFriendlyName: 'qualified',
       followUpDate: '13-01-2022',
       pipeline: 13000
     },
@@ -41,6 +45,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       phone: '+1 (456) 094 8574',
       email: 'john.doe@mail.com',
       status: 'prospecting',
+      statusFriendlyName: 'prospecting',
       followUpDate: '13-01-2022',
       pipeline: 13000
     },

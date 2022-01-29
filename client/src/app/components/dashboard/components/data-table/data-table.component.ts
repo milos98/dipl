@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { LeadModel } from "../../../../shared/models/lead.model";
 
 @Component({
   selector: 'app-data-table',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./data-table.component.scss']
 })
 export class DataTableComponent implements OnInit {
-  @Input() data: any;
-
+  @Input() data: LeadModel[] = [];
 
   constructor() { }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterModel } from "../../../../shared/models/counter.model";
 
 @Component({
   selector: 'app-manager',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ManagerComponent implements OnInit {
 
   selectedCategory = '';
-  data = [
+  data: CounterModel[] = [
     {
       count: 69,
       category: 'prospecting',
@@ -31,13 +32,14 @@ export class ManagerComponent implements OnInit {
       selected: false
     }
   ]
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
 
-  toggleCategoryFilter(counter: any) {
-
+  toggleCategoryFilter(counter: CounterModel) {
     if(this.selectedCategory === '' || this.selectedCategory !== counter.category) {
       this.selectedCategory = counter.category;
     } else {

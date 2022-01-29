@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CounterModel } from "../../../../shared/models/counter.model";
 
 @Component({
   selector: 'app-employee',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeeComponent implements OnInit {
 
   selectedCategory = '';
-  data = [
+  data: CounterModel[] = [
     {
       count: 69,
       category: 'prospecting',

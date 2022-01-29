@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeModel } from "../../../../shared/models/employee.model";
 
 @Component({
   selector: 'app-manager-table-wrapper',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagerTableWrapperComponent implements OnInit {
 
-  dataSet = [
+  dataSet: EmployeeModel[] = [
     {
       info: {
         name: "John",
@@ -21,6 +22,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           phone: '+1 (456) 094 8574',
           email: 'john.doe@mail.com',
           status: 'prospecting',
+          statusFriendlyName: 'prospecting',
           followUpDate: '13-01-2022',
           pipeline: 13000
         },
@@ -30,6 +32,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           phone: '+1 (456) 094 8574',
           email: 'john.doe@mail.com',
           status: 'quoting',
+          statusFriendlyName: 'quoting',
           followUpDate: '13-01-2022',
           pipeline: 13000
         },
@@ -39,6 +42,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           phone: '+1 (456) 094 8574',
           email: 'john.doe@mail.com',
           status: 'qualified',
+          statusFriendlyName: 'qualified',
           followUpDate: '13-01-2022',
           pipeline: 13000
         },
@@ -48,6 +52,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           phone: '+1 (456) 094 8574',
           email: 'john.doe@mail.com',
           status: 'prospecting',
+          statusFriendlyName: 'prospecting',
           followUpDate: '13-01-2022',
           pipeline: 13000
         },
