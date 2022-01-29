@@ -1,0 +1,24 @@
+@import "../../../../../styles/variables";
+
+:host(app-empoyee) {
+  display: flex;
+}
+
+div {
+  width: 100%;
+}
+
+.counters {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+@media (max-width: 880px) {
+  .counters {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}

@@ -1,0 +1,13 @@
+<div *ngFor="let employee of dataSet">
+    <div class="table-header">
+        <p>{{employee.info.name}} {{employee.info.surname}} ({{employee.info.pipeline}}$)</p>
+        <p></p>
+    </div>
+
+    <hr>
+    <hr>
+    <div class="sub-table">
+        <app-data-table [data]="employee.leads"></app-data-table>
+    </div>
+    <hr>
+</div>

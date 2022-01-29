@@ -1,0 +1,11 @@
+<div>
+    <div class="counters">
+        <app-counter
+                *ngFor="let counter of data"
+                [data]="counter"
+                (click)="toggleCategoryFilter(counter)">
+        </app-counter>
+    </div>
+    <app-filter></app-filter>
+    <app-manager-table-wrapper></app-manager-table-wrapper>
+</div>
