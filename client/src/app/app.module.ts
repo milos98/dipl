@@ -7,6 +7,7 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { LayoutModule } from './layout/layout.module';
 import { SharedModule } from './shared/shared.module';
 import { WidgetsModule } from "./widgets/widgets.module";
+import { CreationFormModule } from "./components/creation-form/creation-form.module";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { WidgetsModule } from "./widgets/widgets.module";
     imports: [
         BrowserModule,
         AppRoutingModule,
+        CreationFormModule,
         DashboardModule,
         LayoutModule,
         SharedModule,
