@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class SidebarComponent {
     @Input() open = true;
+    @Input() adminPage = false;
     @Input() pageName = '';
 }

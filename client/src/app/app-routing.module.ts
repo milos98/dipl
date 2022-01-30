@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppLayoutComponent } from "./layout/containers/app-layout/app-layout.component";
 import { EmployeeComponent } from "./components/dashboard/containers/employeee/employee.component"
+import { CreateLeadComponent } from "./components/creation-form/containers/create-lead/create-lead.component";
+import { ManagerComponent } from "./components/dashboard/containers/manager/manager.component";
+import {
+    CreateEmployeeComponent
+} from "./components/creation-form/containers/create-employee/create-employee.component";
 
 const routes: Routes = [
     {
@@ -10,7 +14,37 @@ const routes: Routes = [
     },
     {
         path: 'new-lead',
-        component: AppLayoutComponent,
+        component: CreateLeadComponent
+    },
+    {
+        path: 'admin',
+        children: [
+            {
+                path: '',
+                redirectTo: 'dashboard',
+                pathMatch: 'prefix'
+            },
+            {
+                path: 'dashboard',
+                component: ManagerComponent
+            },
+            {
+                path: 'new-lead',
+                component: CreateLeadComponent
+            },
+            {
+                path: 'new-employee',
+                component: CreateEmployeeComponent
+            },
+            {
+                path: '**',
+                redirectTo: 'dashboard'
+            }
+        ]
+    },
+    {
+        path: '**',
+        redirectTo: '/dashboard'
     }
 ];
 

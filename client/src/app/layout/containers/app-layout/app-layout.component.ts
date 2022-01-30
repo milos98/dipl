@@ -8,16 +8,22 @@ import { Router } from "@angular/router";
   styleUrls: ['./app-layout.component.scss']
 })
 export class AppLayoutComponent {
+  adminPage = false;
   sidebarOpen = false;
   screenWidth = 0;
   pageName = '';
 
   constructor(private location: Location, private router: Router) {
     router.events.subscribe(() => {
-      switch(location.path()) {
-        case '/dashboard' : this.pageName = 'Dashboard';
+      let pathArray = location.path().split('/');
+      this.adminPage = pathArray.includes('admin');
+
+      switch(pathArray.pop()) {
+        case 'dashboard' : this.pageName = 'Dashboard';
           break;
-        case '/new-lead' : this.pageName = 'Add a new lead';
+        case 'new-lead' : this.pageName = 'Add a new lead';
+          break;
+        case 'new-employee' : this.pageName = 'Add a new employee';
           break;
       }
     })

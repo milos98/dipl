@@ -3,14 +3,20 @@
         <nav>
             <ul>
                 <li [ngClass]=" pageName==='Dashboard' ? 'selected' : ''">
-                    <a routerLink="/dashboard">
+                    <a [routerLink]="(adminPage ? 'admin/' : '') + 'dashboard'">
                         <span class="emoji">🚀</span>
                         <span class="page-name">Dashboard</span>
                     </a>
                 </li>
                 <li [ngClass]=" pageName==='Add a new lead' ? 'selected' : ''">
-                    <a routerLink="/new-lead">
+                    <a [routerLink]="adminPage ? 'admin/new-lead' : 'new-lead'">
                         <span class="emoji">✍️️</span>
+                        <span class="page-name">Add a new lead</span>
+                    </a>
+                </li>
+                <li [ngClass]=" pageName==='Add a new employee' ? 'selected' : ''" *ngIf="adminPage">
+                    <a [routerLink]="adminPage ? 'admin/new-employee' : 'new-employee'">
+                        <span class="emoji">🐵️️</span>
                         <span class="page-name">Add a new lead</span>
                     </a>
                 </li>
