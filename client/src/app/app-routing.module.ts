@@ -6,18 +6,17 @@ import { ManagerComponent } from "./components/dashboard/containers/manager/mana
 import {
     CreateEmployeeComponent
 } from "./components/creation-form/containers/create-employee/create-employee.component";
+import { AuthComponent } from "./layout/containers/auth/auth.component";
+import { AppLayoutComponent } from "./layout/containers/app-layout/app-layout.component";
 
 const routes: Routes = [
     {
-        path: 'dashboard',
-        component: EmployeeComponent,
+        path: 'auth',
+        component: AuthComponent
     },
     {
-        path: 'new-lead',
-        component: CreateLeadComponent
-    },
-    {
-        path: 'admin',
+        path: '',
+        component: AppLayoutComponent,
         children: [
             {
                 path: '',
@@ -26,20 +25,38 @@ const routes: Routes = [
             },
             {
                 path: 'dashboard',
-                component: ManagerComponent
+                component: EmployeeComponent
             },
             {
                 path: 'new-lead',
                 component: CreateLeadComponent
             },
             {
-                path: 'new-employee',
-                component: CreateEmployeeComponent
+                path: 'admin',
+                children: [
+                    {
+                        path: '',
+                        redirectTo: 'dashboard',
+                        pathMatch: 'prefix'
+                    },
+                    {
+                        path: 'dashboard',
+                        component: ManagerComponent
+                    },
+                    {
+                        path: 'new-lead',
+                        component: CreateLeadComponent
+                    },
+                    {
+                        path: 'new-employee',
+                        component: CreateEmployeeComponent
+                    },
+                    {
+                        path: '**',
+                        redirectTo: 'dashboard'
+                    }
+                ]
             },
-            {
-                path: '**',
-                redirectTo: 'dashboard'
-            }
         ]
     },
     {
