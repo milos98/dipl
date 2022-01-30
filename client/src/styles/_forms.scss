@@ -6,17 +6,19 @@
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  justify-content: center;
   align-items: center;
+}
 
-  button {
-    margin: 2rem 0;
-    background-color: $color-accent;
-    color: $color-white;
-    border: 0;
-    border-radius: 2em;
-    padding: 1rem;
-    width: 80%;
-  }
+.form-btn {
+  margin: 2rem 0;
+  background-color: $color-accent;
+  color: $color-white;
+  border: 0;
+  border-radius: 2em;
+  padding: 1rem;
+  width: 80%;
 }
 
 .info-wrapper {
@@ -43,6 +45,7 @@
 
       label {
         box-sizing: border-box;
+        padding-top: 0.3rem;
         padding-bottom: 0.5rem;
       }
 

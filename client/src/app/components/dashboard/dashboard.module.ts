@@ -9,6 +9,7 @@ import { EmployeeTableWrapperComponent } from './components/employee-table-wrapp
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { ManagerComponent } from './containers/manager/manager.component';
 import { ManagerTableWrapperComponent } from './components/manager-table-wrapper/manager-table-wrapper.component';
+import { WidgetsModule } from "../../widgets/widgets.module";
 
 
 
@@ -24,7 +25,8 @@ import { ManagerTableWrapperComponent } from './components/manager-table-wrapper
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    WidgetsModule
   ],
   exports: [
       EmployeeComponent

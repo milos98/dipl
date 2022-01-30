@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CounterModel } from "../../../../shared/models/counter.model";
+import { LeadModel } from "../../../../shared/models/lead.model";
 
 @Component({
   selector: 'app-manager',
@@ -8,7 +9,10 @@ import { CounterModel } from "../../../../shared/models/counter.model";
 })
 export class ManagerComponent implements OnInit {
 
+  modalShow = true;
   selectedCategory = '';
+  selectedLead: LeadModel;
+
   data: CounterModel[] = [
     {
       count: 69,

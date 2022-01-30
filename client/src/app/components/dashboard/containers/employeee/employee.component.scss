@@ -1,7 +1,44 @@
 @import "../../../../../styles/variables";
+@import "../../../../../styles/forms";
 
 :host(app-empoyee) {
   display: flex;
+}
+
+.modal {
+  background-color: $color-secondary;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  box-sizing: border-box;
+  width: 80%;
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-top: 6rem;
+
+  button {
+    margin-bottom: 1rem;
+  }
+}
+
+.root {
+  position: relative;
+  overflow-x: paged-x-controls;
+}
+
+.shade {
+  position: fixed;
+  top: -4rem;
+  left: -12.5%;
+  width: calc(125%);
+  height: calc(100% + 8rem);
+  background-color: rgba(0,0,0,0.5);
 }
 
 div {
