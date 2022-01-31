@@ -1,7 +1,7 @@
 const Assert = require('assert');
 const Mongoose = require('mongoose');
 
-const config = require('../../config/database');
+const config = require('../../config');
 
 const DB = {
     connection: null,
@@ -12,9 +12,9 @@ const DB = {
         try {
             if (DB.database) return;
 
-            Assert(config.uri, 'Database connection string must be provided!')
+            Assert(config.database.uri, 'Database connection string must be provided!')
 
-            DB.database = await Mongoose.connect(config.uri, config.settings);
+            DB.database = await Mongoose.connect(config.database.uri, config.database.settings);
             console.log('Connected to database!')
         }
         catch (error) {
