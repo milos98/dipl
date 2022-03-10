@@ -2,7 +2,6 @@ const Bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const Dals = require('../../dals');
-const internals = require('./internals');
 const Internals = require('./internals')
 
 const register = async (params, res) => {
@@ -12,7 +11,7 @@ const register = async (params, res) => {
 
         // check if user already exist
         // Validate if user exist in our database
-        const existingUser = await Dals.auth.findByEmail({ email });
+        const existingUser = await Dals.users.findByEmail({ email });
 
         if (existingUser) {
           return res.status(409).send("User Already Exist. Please Login!");
@@ -38,7 +37,7 @@ const register = async (params, res) => {
         }
 
         // Create user in database
-        const user = await Dals.auth.create(userObject);
+        const user = await Dals.users.create(userObject);
 
         // Create token
         const token = jwt.sign(
