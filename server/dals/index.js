@@ -1,10 +1,13 @@
 const Database = require('./database');
-const Auth = require('./auth');
+const Users = require('./users');
+const Leads = require('./leads');
 
 module.exports = {
     initialize: async () => {
         await Database.initialize();
-        Auth.initialize();
+        Users.initialize();
+        Leads.initialize();
     },
-    auth: Auth,
+    users: Users,
+    leads: Leads
 };
