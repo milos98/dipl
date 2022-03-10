@@ -1,5 +1,7 @@
 const Auth = require('./auth');
+const Leads = require('.leads');
 
 module.exports = {
-    auth: Auth
+    auth: Auth,
+    leads: Leads
 };

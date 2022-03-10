@@ -1,13 +1,17 @@
 const Model = require('./model')
-const Create = require('./create');
+const CreateLead = require('./create');
 const FindAll = require('./find-all');
 const FindById = require('./find-by-id');
+const FindByAccountManager = require('./find-by-account-manager');
+const UpdateLead = require('./update');
 
 module.exports = {
     initialize: () => {
         Model.initialize();
     },
-    create: Create,
+    createLead: CreateLead,
     findAll: FindAll,
-    findById: FindById
+    findById: FindById,
+    findByAccountManager: FindByAccountManager,
+    updateLead: UpdateLead
 };
