@@ -2,7 +2,7 @@ const AuthFacade = require('../../../facade/auth')
 const Validation = require('../../../validation')
 
 const register = (req, res) => {
-    const validationResult = Validation.registrationValidation.validate(req.body);
+    const validationResult = Validation.authValidation.registrationValidation.validate(req.body);
 
     if(validationResult.error) {
         return res.status(400).json({
