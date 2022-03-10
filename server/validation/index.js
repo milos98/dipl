@@ -1,7 +1,7 @@
-const RegistrationValidation = require('./registration.validation');
-const LoginValidation = require('./login.validation');
+const AuthValidation = require('./auth');
+const LeadsValidation = require('./leads')
 
 module.exports = {
-    registrationValidation: RegistrationValidation,
-    loginValidation: LoginValidation
+    authValidation: AuthValidation,
+    leadsValidation: LeadsValidation
 };
