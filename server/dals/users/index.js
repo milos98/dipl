@@ -2,6 +2,7 @@ const Model = require('./model')
 const Create = require('./create');
 const FindByEmail = require('./find-by-email');
 const FindById = require('./find-by-id');
+const Update = require('./update');
 
 module.exports = {
     initialize: () => {
@@ -9,5 +10,6 @@ module.exports = {
     },
     create: Create,
     findByEmail: FindByEmail,
-    findById: FindById
+    findById: FindById,
+    update: Update
 };
