@@ -1,8 +1,8 @@
-const AuthFacade = require('../../../facade/auth')
+const EmployeesFacade = require('../../../facade/employees')
 const Validation = require('../../../validation')
 
-const register = (req, res) => {
-    const validationResult = Validation.authValidation.registrationValidation.validate(req.body);
+const create = (req, res) => {
+    const validationResult = Validation.employeeValidation.createValidation.validate(req.body);
 
     if(validationResult.error) {
         return res.status(400).json({
@@ -19,7 +19,7 @@ const register = (req, res) => {
         isSuspended: req.body.isSuspended
     };
 
-    return AuthFacade.register(params, res);
+    return EmployeesFacade.create(params, res);
 };
 
-module.exports = register;
+module.exports = create;

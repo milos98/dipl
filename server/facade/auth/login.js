@@ -10,7 +10,7 @@ const register = async (params, res) => {
         const { email, password } = params;
 
         // Validate if user exist in our database
-        const user = await Dals.users.findByEmail({ email });
+        const user = await Dals.users.findByEmail(email);
 
         if (user && (await Bcrypt.compare(password, user.encryptedPassword))) {
             // Create token
