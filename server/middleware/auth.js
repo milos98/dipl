@@ -13,11 +13,10 @@ const verifyToken = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.auth.tokenKey);
     req.auth = decoded;
-    console.log(decoded);
 
     const user = await Dals.users.findById(decoded.user_id);
 
-    if(!user.isSuspended) {
+    if(user.isSuspended) {
       return res.status(403).send("User suspended");
     }
 
