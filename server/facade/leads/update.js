@@ -6,7 +6,7 @@ const updateLead = async (params, res) => {
         const { leadObject, user_id } = params;
 
         // check if lead exist
-        const existingLead = await Dals.auth.findById({ lead });
+        const existingLead = await Dals.leads.findById(leadObject.id);
         if (!existingLead) {
           return res.status(409).send("Lead doesn't exist!");
         }

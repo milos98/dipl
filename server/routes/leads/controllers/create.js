@@ -3,7 +3,7 @@ const Validation = require('../../../validation')
 
 const createLead = (req, res) => {
 
-    const validationResult = Validation.newLeadValidation.validate(req.body);
+    const validationResult = Validation.leadsValidation.newLeadValidation.validate(req.body);
 
     if(validationResult.error) {
         return res.status(400).json({

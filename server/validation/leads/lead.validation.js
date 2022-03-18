@@ -1,5 +1,5 @@
 const Joi = require('joi').extend(require('@joi/date'));
-const Constants = require('../../constants')
+const Constants = require('../../constants');
 
 const schema = Joi.object({
     id: Joi.string().pattern(/^[a-fA-F0-9]{24}$/),
@@ -24,7 +24,8 @@ const schema = Joi.object({
         dealStage: Joi.string().required(),
         pipeline: Joi.string().required(),
         notes: Joi.string().required()
-    })
+    }),
+    accountManager: Joi.string().pattern(/^[a-fA-F0-9]{24}$/)
 });
 
 module.exports = schema;

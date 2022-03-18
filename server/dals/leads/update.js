@@ -1,9 +1,9 @@
 const Model = require('./model');
 
-const updateLead = (leadObject) => {
+const update = (leadObject) => {
 
     const model = Model.model();
 
     return model.update(leadObject);
 };
-module.exports = updateLead;
+module.exports = update;

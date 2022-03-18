@@ -5,35 +5,36 @@ const updateLead = (req, res) => {
 
     const params = {
         leadObject: {
-            id: req.body.id,
+            id: req.params.id,
             contact: {
-                firstName: req.body.firstName,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                phone: req.body.phone,
-                title: req.body.title,
-                contactMethod: req.body.contactMethod
+                firstName: req.body.contact.firstName,
+                lastName: req.body.contact.lastName,
+                email: req.body.contact.email,
+                phone: req.body.contact.phone,
+                title: req.body.contact.title,
+                contactMethod: req.body.contact.contactMethod
             },
             company: {
-                companyName: req.body.companyName,
-                website: req.body.website,
-                address: req.body.address,
-                floor: req.body.floor,
-                city: req.body.city,
-                zip: req.body.zip
+                companyName: req.body.company.companyName,
+                website: req.body.company.website,
+                address: req.body.company.address,
+                floor: req.body.company.floor,
+                city: req.body.company.city,
+                zip: req.body.company.zip
             },
             deal: {
-                followUpDate: req.body.followUpDate,
-                dealStage: req.body.dealStage,
-                pipeline: req.body.pipeline,
-                notes: req.body.notes
+                followUpDate: req.body.deal.followUpDate,
+                dealStage: req.body.deal.dealStage,
+                pipeline: req.body.deal.pipeline,
+                notes: req.body.deal.notes
             },
-            accountManager: req.body.accountManager
+            accountManager: req.body.accountManager || req.auth.user_id
         },
         user_id: req.auth.user_id
     };
+    console.log(params.leadObject)
 
-    const validationResult = Validation.leadValidation.validate(params);
+    const validationResult = Validation.leadsValidation.leadValidation.validate(params.leadObject);
 
     if(validationResult.error) {
 
