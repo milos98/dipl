@@ -35,23 +35,23 @@ export class LeadInfoComponent implements OnInit {
   ngOnInit(): void {
     if(this.leadData != undefined) {
       this.leadForm = this.formBuilder.group({
-        firstName: this.leadData.firstName,
-        lastName: this.leadData.lastName,
-        email: this.leadData.email,
-        phone: this.leadData.phone,
-        title: this.leadData.title,
-        contactMethod: this.leadData.contactMethod,
-        company: this.leadData.company,
-        website: this.leadData.website,
-        address: this.leadData.address,
-        floor: this.leadData.floor,
-        city: this.leadData.city,
-        zip: this.leadData.zip,
-        followUpDate: this.leadData.followUpDate,
-        status: this.leadData.status,
-        statusFriendlyName: this.leadData.statusFriendlyName,
-        pipeline: this.leadData.pipeline,
-        notes: this.leadData.notes
+        firstName: this.leadData.contact.firstName,
+        lastName: this.leadData.contact.lastName,
+        email: this.leadData.contact.email,
+        phone: this.leadData.contact.phone,
+        title: this.leadData.contact.title,
+        contactMethod: this.leadData.contact.contactMethod,
+        company: this.leadData.company.company,
+        website: this.leadData.company.website,
+        address: this.leadData.company.address,
+        floor: this.leadData.company.floor,
+        city: this.leadData.company.city,
+        zip: this.leadData.company.zip,
+        followUpDate: this.leadData.deal.followUpDate,
+        status: this.leadData.deal.status,
+        statusFriendlyName: this.leadData.deal.statusFriendlyName,
+        pipeline: this.leadData.deal.pipeline,
+        notes: this.leadData.deal.notes
       });
     }
   }
