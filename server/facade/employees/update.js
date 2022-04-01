@@ -1,5 +1,4 @@
 const Bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 
 const Dals = require('../../dals');
 
@@ -9,10 +8,10 @@ const register = async (params, res) => {
         const { id, firstName, lastName, email, password, isAdmin, isSuspended, user_id } = params;
 
         //check if user can perform the update
-        // const existingRequestorUser = await Dals.users.findById(user_id);
-        // if (!existingRequestorUser.isAdmin && id !== user_id) {
-        //     return res.status(403).send("User doesn't have permissions for this!");
-        // }
+        const existingRequestorUser = await Dals.users.findById(user_id);
+        if (!existingRequestorUser.isAdmin && id !== user_id) {
+            return res.status(403).send("User doesn't have permissions for this!");
+        }
 
         // check if requested user for update already exist
         // Validate if user exist in our database

@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
     token = req.body.token || req.query.token || req.headers["x-access-token"] || req.headers.authorization.split(' ')[1];
 
     if (!token) {
-      return res.status(403).send("A token is required for authentication");
+      return res.status(401).send("A token is required for authentication");
     }
   }
   catch (err) {
@@ -26,7 +26,7 @@ const verifyToken = async (req, res, next) => {
     const user = await Dals.users.findById(decoded.user_id);
 
     if(user.isSuspended) {
-      return res.status(403).send("User suspended");
+      return res.status(401).send("User suspended");
     }
 
   } catch (err) {

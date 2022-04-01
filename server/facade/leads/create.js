@@ -14,7 +14,7 @@ const createLead = async (params, res) => {
         // check if lead exist
         const existingLead = await Dals.leads.findByEmail(leadObject.contact.email);
         if (existingLead) {
-          return res.status(403).send("Lead already exist!");
+          return res.status(409).send("Lead already exist!");
         }
 
         // Create lead in database
