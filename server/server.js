@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 
 const Dals = require('./dals');
 const AuthMiddleware = require('./middleware/auth')
@@ -16,10 +17,13 @@ async function start() {
     // Express middleware for parsing JSON bodies
     app.use(express.json());
 
+    // Cors middleware
+    app.use(cors());
+
     // Router
     app.use('/auth', AuthRouter);
     app.use('/leads', AuthMiddleware, LeadsRouter);
-    app.use('/employees', EmployeesRouter);
+    app.use('/employees', AuthMiddleware, EmployeesRouter);
 
     // Start server
     app.listen(port, () => console.log(`Server is running on port ${port}`));
