@@ -19,8 +19,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'prospecting',
-        statusFriendlyName: 'prospecting',
+        dealStage: 'prospecting',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -35,8 +34,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'quoting',
-        statusFriendlyName: 'quoting',
+        dealStage: 'quoting',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -51,8 +49,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'qualified',
-        statusFriendlyName: 'qualified',
+        dealStage: 'qualified',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -67,8 +64,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'prospecting',
-        statusFriendlyName: 'prospecting',
+        dealStage: 'prospecting',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -83,8 +79,7 @@ export class EmployeeTableWrapperComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'won_closed',
-        statusFriendlyName: 'won/closed',
+        dealStage: 'won_closed',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }

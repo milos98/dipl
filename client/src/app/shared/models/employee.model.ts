@@ -1,10 +1,11 @@
 import { LeadModel } from "./lead.model";
 
 export interface EmployeeModel {
-    info: {
-        name: string;
-        surname: string;
-        pipeline: number;
-    };
+    _id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    isAdmin: boolean;
+    pipeline?: number;
     leads: LeadModel[];
 }

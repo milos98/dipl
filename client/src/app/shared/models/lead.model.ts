@@ -1,4 +1,5 @@
 export interface LeadModel {
+    id?: string;
     contact: {
         firstName: string;
         lastName: string;
@@ -17,9 +18,9 @@ export interface LeadModel {
     },
     deal: {
         followUpDate: string;
-        status: string;
-        statusFriendlyName?: string;
+        dealStage: string;
         pipeline: number;
         notes?: string;
-    }
+    },
+    accountManager?: string;
 }

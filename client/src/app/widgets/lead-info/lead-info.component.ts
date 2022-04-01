@@ -48,8 +48,7 @@ export class LeadInfoComponent implements OnInit {
         city: this.leadData.company.city,
         zip: this.leadData.company.zip,
         followUpDate: this.leadData.deal.followUpDate,
-        status: this.leadData.deal.status,
-        statusFriendlyName: this.leadData.deal.statusFriendlyName,
+        dealStage: this.leadData.deal.dealStage,
         pipeline: this.leadData.deal.pipeline,
         notes: this.leadData.deal.notes
       });

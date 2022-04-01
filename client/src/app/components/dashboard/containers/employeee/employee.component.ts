@@ -55,8 +55,7 @@ export class EmployeeComponent implements OnInit {
         zip: 11000
       },
       deal: {
-        status: 'prospecting',
-        statusFriendlyName: 'prospecting',
+        dealStage: 'prospecting',
         followUpDate: '2022-01-13',
         pipeline: 13000,
         notes: 'smth'
@@ -72,8 +71,7 @@ export class EmployeeComponent implements OnInit {
       company: {
       },
       deal: {
-        statusFriendlyName: 'quoting',
-        status: 'quoting',
+        dealStage: 'quoting',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -88,8 +86,7 @@ export class EmployeeComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'qualified',
-        statusFriendlyName: 'qualified',
+        dealStage: 'qualified',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -104,8 +101,7 @@ export class EmployeeComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'prospecting',
-        statusFriendlyName: 'prospecting',
+        dealStage: 'prospecting',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }
@@ -120,8 +116,7 @@ export class EmployeeComponent implements OnInit {
       company: {
       },
       deal: {
-        status: 'won_closed',
-        statusFriendlyName: 'won/closed',
+        dealStage: 'won_closed',
         followUpDate: '13-01-2022',
         pipeline: 13000
       }

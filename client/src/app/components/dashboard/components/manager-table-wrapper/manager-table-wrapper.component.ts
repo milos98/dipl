@@ -10,11 +10,12 @@ export class ManagerTableWrapperComponent implements OnInit {
 
   dataSet: EmployeeModel[] = [
     {
-      info: {
-        name: "John",
-        surname: "Doe",
-        pipeline: 0
-      },
+      _id: 'abc',
+      firstName: "John",
+      lastName: "Doe",
+      email: 'john.doe@gmail.com',
+      isAdmin: true,
+      pipeline: 0,
       leads: [
         {
           contact: {
@@ -26,8 +27,23 @@ export class ManagerTableWrapperComponent implements OnInit {
           company: {
           },
           deal: {
-            status: 'prospecting',
-            statusFriendlyName: 'prospecting',
+            dealStage: 'prospecting',
+            followUpDate: '13-01-2022',
+            pipeline: 13000,
+            notes: 'abc'
+          }
+        },
+        {
+          contact: {
+            firstName: 'Jonh',
+            lastName: 'Doe',
+            phone: '+1 (456) 094 8574',
+            email: 'john.doe@mail.com',
+          },
+          company: {
+          },
+          deal: {
+            dealStage: 'quoting',
             followUpDate: '13-01-2022',
             pipeline: 13000
           }
@@ -42,8 +58,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           company: {
           },
           deal: {
-            status: 'quoting',
-            statusFriendlyName: 'quoting',
+            dealStage: 'qualified',
             followUpDate: '13-01-2022',
             pipeline: 13000
           }
@@ -58,8 +73,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           company: {
           },
           deal: {
-            status: 'qualified',
-            statusFriendlyName: 'qualified',
+            dealStage: 'prospecting',
             followUpDate: '13-01-2022',
             pipeline: 13000
           }
@@ -74,24 +88,7 @@ export class ManagerTableWrapperComponent implements OnInit {
           company: {
           },
           deal: {
-            status: 'prospecting',
-            statusFriendlyName: 'prospecting',
-            followUpDate: '13-01-2022',
-            pipeline: 13000
-          }
-        },
-        {
-          contact: {
-            firstName: 'Jonh',
-            lastName: 'Doe',
-            phone: '+1 (456) 094 8574',
-            email: 'john.doe@mail.com',
-          },
-          company: {
-          },
-          deal: {
-            status: 'won_closed',
-            statusFriendlyName: 'won/closed',
+            dealStage: 'won_closed',
             followUpDate: '13-01-2022',
             pipeline: 13000
           }
@@ -104,7 +101,7 @@ export class ManagerTableWrapperComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataSet.forEach((employee) => {
-      employee.info.pipeline = employee.leads.map((lead) => lead.deal.pipeline).reduce((pipeline, acc) => acc += pipeline)
+      employee.pipeline = employee.leads.map((lead) => lead.deal.pipeline).reduce((pipeline, acc) => acc += pipeline);
     })
   }
 }
