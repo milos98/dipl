@@ -6,6 +6,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { SidebarComponent } from "./components/sidebar/sidebar.component";
 import { TopbarComponent } from "./components/topbar/topbar.component";
 import { AuthComponent } from './containers/auth/auth.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { AuthComponent } from './containers/auth/auth.component';
     ],
     imports: [
         AppRoutingModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
     ]
 })
 export class LayoutModule { }

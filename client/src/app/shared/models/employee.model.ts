@@ -7,5 +7,6 @@ export interface EmployeeModel {
     email: string;
     isAdmin: boolean;
     pipeline?: number;
+    token?: string;
     leads: LeadModel[];
 }

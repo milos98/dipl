@@ -1,7 +1,10 @@
 <div class="wrapper">
-    <label for="username">Username</label>
-    <input id="username" name="username" type="text">
-    <label for="password">Password</label>
-    <input id="password" name="password" type="password">
-    <button class="form-btn">Log in</button>
+    <form [formGroup]="authForm">
+        <label for="username">Username</label>
+        <input id="username" name="username" formControlName="email" type="text">
+        <label for="password">Password</label>
+        <input id="password" name="password" formControlName="password" type="password">
+    </form>
+    <p>{{ errorMessage }}</p>
+    <button class="form-btn" (click)="authenticate()">Log in</button>
 </div>

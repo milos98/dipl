@@ -5,18 +5,23 @@
   height: 100%;
   color: $color-white;
 
-  label {
-    margin-top: 1rem;
-    color: $color-white;
-  }
+  form {
+    display: flex;
+    flex-direction: column;
 
-  input {
-    background-color: transparent;
-    border-color: $color-accent;
-    color: $color-white;
-    border-width: 3px;
-    border-radius: 1rem;
-    border-style: solid;
+    label {
+      margin-top: 1rem;
+      color: $color-white;
+    }
+
+    input {
+      background-color: transparent;
+      border-color: $color-accent;
+      color: $color-white;
+      border-width: 3px;
+      border-radius: 1rem;
+      border-style: solid;
+    }
   }
 }
 

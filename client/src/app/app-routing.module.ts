@@ -8,6 +8,8 @@ import {
 } from "./components/creation-form/containers/create-employee/create-employee.component";
 import { AuthComponent } from "./layout/containers/auth/auth.component";
 import { AppLayoutComponent } from "./layout/containers/app-layout/app-layout.component";
+import { AuthGuard } from "./core/auth.guard";
+import { AdminGuard } from "./core/admin.guard";
 
 const routes: Routes = [
     {
@@ -17,6 +19,7 @@ const routes: Routes = [
     {
         path: '',
         component: AppLayoutComponent,
+        canActivateChild: [AuthGuard],
         children: [
             {
                 path: '',
@@ -33,6 +36,7 @@ const routes: Routes = [
             },
             {
                 path: 'admin',
+                canActivateChild: [AdminGuard],
                 children: [
                     {
                         path: '',

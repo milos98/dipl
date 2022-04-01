@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from "../../../shared/auth/auth.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -9,4 +10,11 @@ export class SidebarComponent {
     @Input() open = true;
     @Input() adminPage = false;
     @Input() pageName = '';
+
+    constructor(private authService: AuthService) {
+    }
+
+    logout() {
+        this.authService.logout();
+    }
 }
