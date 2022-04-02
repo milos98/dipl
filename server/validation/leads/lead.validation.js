@@ -22,7 +22,7 @@ const schema = Joi.object({
     deal: Joi.object({
         followUpDate: Joi.date().format('YYYY-MM-DD').utc(),
         dealStage: Joi.string().required(),
-        pipeline: Joi.string().required(),
+        pipeline: Joi.number().required(),
         notes: Joi.string().required()
     }),
     accountManager: Joi.string().pattern(/^[a-fA-F0-9]{24}$/)

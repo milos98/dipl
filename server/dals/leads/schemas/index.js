@@ -22,7 +22,7 @@ internals.usersSchema = new Mongoose.Schema({
     deal: {
         followUpDate: { type: Date, required: true },
         dealStage: { type: String, required: true },
-        pipeline: { type: String, required: true },
+        pipeline: { type: Number, required: true },
         notes: { type: String, required: true }
     },
     accountManager: { type: Mongoose.Schema.ObjectId, required: true }
