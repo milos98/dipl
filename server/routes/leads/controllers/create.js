@@ -3,14 +3,6 @@ const Validation = require('../../../validation')
 
 const createLead = (req, res) => {
 
-    const validationResult = Validation.leadsValidation.newLeadValidation.validate(req.body);
-
-    if(validationResult.error) {
-        return res.status(400).json({
-            message: 'All inputs are required! '+ validationResult.error.toString()
-        });
-    }
-
     const params = {
         leadObject: {
             contact: {
@@ -39,6 +31,14 @@ const createLead = (req, res) => {
         },
         user_id: req.auth.user_id
     };
+
+    const validationResult = Validation.leadsValidation.newLeadValidation.validate(params.leadObject);
+
+    if(validationResult.error) {
+        return res.status(400).json({
+            message: 'All inputs are required! '+ validationResult.error.toString()
+        });
+    }
 
     return LeadsFacade.create(params, res);
 };

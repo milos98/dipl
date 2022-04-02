@@ -24,7 +24,8 @@ const createLead = async (params, res) => {
         res.status(201).json({ lead });
 
     } catch (err) {
-        console.log(err);
+      console.log(err);
+      res.status(500).json(err);
     }
 };
 
