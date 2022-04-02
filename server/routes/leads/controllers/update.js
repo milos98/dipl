@@ -32,7 +32,6 @@ const updateLead = (req, res) => {
         },
         user_id: req.auth.user_id
     };
-    console.log(params.leadObject)
 
     const validationResult = Validation.leadsValidation.leadValidation.validate(params.leadObject);
 

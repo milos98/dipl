@@ -19,7 +19,6 @@ const updateLead = async (params, res) => {
 
         // Update lead in database
         const lead = await Dals.leads.update(leadObject);
-        console.log(lead);
 
         // return updated lead
         res.status(201).json(lead);

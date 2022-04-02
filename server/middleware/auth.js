@@ -21,8 +21,6 @@ const verifyToken = async (req, res, next) => {
     const decoded = jwt.verify(token, config.auth.tokenKey);
     req.auth = decoded;
 
-    console.log(decoded);
-
     const user = await Dals.users.findById(decoded.user_id);
 
     if(user.isSuspended) {
