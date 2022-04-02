@@ -4,8 +4,6 @@ const findAll = () => {
 
     const model = Model.model();
 
-    const query = { };
-
     return model.aggregate([
         { '$match': { _id : {$exists: true} } },
         {
@@ -14,7 +12,6 @@ const findAll = () => {
                 leads: { $push: '$$ROOT' }
             }
         },
-        { $unset: [ "leads.accountManager" ] },
         {
             $lookup:
               {

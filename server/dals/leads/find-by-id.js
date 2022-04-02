@@ -1,6 +1,6 @@
 const Model = require('./model');
 
-const findByEmail = (id) => {
+const findById = (id) => {
 
     const model = Model.model();
 
@@ -9,4 +9,4 @@ const findByEmail = (id) => {
     return model.findOne(query);
 };
 
-module.exports = findByEmail;
+module.exports = findById;
