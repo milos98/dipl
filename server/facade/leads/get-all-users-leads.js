@@ -12,10 +12,11 @@ const getAllUsersLeads = async (params, res) => {
         }
 
         // return all leads assigned to user
-        res.status(201).json({ leads });
+        res.status(201).json( leads );
 
     } catch (err) {
         console.log(err);
+        res.status(500).json(err);
     }
 };
 
