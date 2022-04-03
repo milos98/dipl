@@ -1,143 +1,111 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { CounterModel } from "../../../../shared/models/counter.model";
-import { LeadModel } from "../../../../shared/models/lead.model";
+import { LeadsService } from "../../../../shared/leads/leads.service";
+import { EmployeeModel } from "../../../../shared/models/employee.model";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.scss']
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit, OnChanges {
 
-  modalShow = true;
+  modalShow = false;
   selectedCategory = '';
-  selectedLead: LeadModel;
 
-  data: CounterModel[] = [
-    {
-      count: 69,
-      category: 'prospecting',
-      selected: false
-    },
-    {
-      count: 73,
-      category: 'qualified',
-      selected: false
-    },
-    {
-      count: 95,
-      category: 'quoting',
-      selected: false
-    },
-    {
-      count: 28,
-      category: 'won_closed',
-      categoryFriendlyName: 'won/closed',
-      selected: false
-    }
-  ];
-  dataSet: LeadModel[] = [
-    {
-      contact: {
-        firstName: 'Jonh',
-        lastName: 'Doe',
-        phone: '+1 (456) 094 8574',
-        email: 'john.doe@mail.com',
-        contactMethod: 'email',
-        title: 'abc'
-      },
-      company: {
-        company: 'abcdeg',
-        website: 'web',
-        address: 'adr',
-        floor: 8,
-        city: 'beg',
-        zip: 11000
-      },
-      deal: {
-        dealStage: 'prospecting',
-        followUpDate: '2022-01-13',
-        pipeline: 13000,
-        notes: 'smth'
-      }
-    },
-    {
-      contact: {
-        firstName: 'Jonh',
-        lastName: 'Doe',
-        phone: '+1 (456) 094 8574',
-        email: 'john.doe@mail.com',
-      },
-      company: {
-      },
-      deal: {
-        dealStage: 'quoting',
-        followUpDate: '13-01-2022',
-        pipeline: 13000
-      }
-    },
-    {
-      contact: {
-        firstName: 'Jonh',
-        lastName: 'Doe',
-        phone: '+1 (456) 094 8574',
-        email: 'john.doe@mail.com',
-      },
-      company: {
-      },
-      deal: {
-        dealStage: 'qualified',
-        followUpDate: '13-01-2022',
-        pipeline: 13000
-      }
-    },
-    {
-      contact: {
-        firstName: 'Jonh',
-        lastName: 'Doe',
-        phone: '+1 (456) 094 8574',
-        email: 'john.doe@mail.com',
-      },
-      company: {
-      },
-      deal: {
-        dealStage: 'prospecting',
-        followUpDate: '13-01-2022',
-        pipeline: 13000
-      }
-    },
-    {
-      contact: {
-        firstName: 'Jonh',
-        lastName: 'Doe',
-        phone: '+1 (456) 094 8574',
-        email: 'john.doe@mail.com',
-      },
-      company: {
-      },
-      deal: {
-        dealStage: 'won_closed',
-        followUpDate: '13-01-2022',
-        pipeline: 13000
-      }
-    }
-  ];
+  data: EmployeeModel[];
+  counterData: CounterModel[];
 
-  constructor() { }
+  constructor(
+      private leadsService: LeadsService,
+      private datePipe: DatePipe
+  ) { }
 
   ngOnInit(): void {
+    this.fetchData();
   }
 
-  toggleCategoryFilter(counter: any) {
+  ngOnChanges(changes: SimpleChanges) {
+    if(changes) {
+      this.leadsService.resetSelectedlead();
+      this.fetchData();
+    }
+  }
 
+  fetchData() {
+    this.counterReset();
+    this.leadsService.getAllUsersLeads().subscribe((res) => {
+      this.data = res;
+      this.data.forEach((employee) => {
+        let totalPipeline = 0;
+        employee.leads.forEach((lead) => {
+          this.counterData.forEach((counter) => {
+            if (counter.category === lead.deal.dealStage) {
+              counter.count += 1;
+            }
+          });
+          totalPipeline += +lead.deal.pipeline;
+          lead.deal.followUpDate = this.datePipe.transform(lead.deal.followUpDate, 'yyyy-MM-dd');
+        });
+        employee.pipeline = totalPipeline;
+      });
+    });
+  }
+
+  toggleCategoryFilter(counter: CounterModel) {
     if(this.selectedCategory === '' || this.selectedCategory !== counter.category) {
       this.selectedCategory = counter.category;
     } else {
       this.selectedCategory = '';
     }
 
-    this.data.forEach( d => {
+    this.counterData.forEach( d => {
       d.selected = d.category === this.selectedCategory;
     })
+  }
+
+  selectLead(): void {
+    this.modalShow = true;
+  }
+
+  updateLead() {
+    this.leadsService.update().subscribe(
+        () => {
+          console.log('hdtgfjhkjk');
+          this.closeModal();
+        }
+    );
+  }
+
+  closeModal() {
+    this.modalShow = !this.modalShow;
+    this.leadsService.resetSelectedlead();
+    this.fetchData();
+  }
+
+  counterReset() {
+    this.counterData = [
+      {
+        count: 0,
+        category: 'prospecting',
+        selected: false
+      },
+      {
+        count: 0,
+        category: 'qualified',
+        selected: false
+      },
+      {
+        count: 0,
+        category: 'quoting',
+        selected: false
+      },
+      {
+        count: 0,
+        category: 'won_closed',
+        selected: false
+      }
+    ];
   }
 }

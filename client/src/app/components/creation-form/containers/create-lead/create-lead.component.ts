@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LeadsService } from "../../../../shared/leads/leads.service";
 
 @Component({
   selector: 'app-create-lead',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateLeadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private leadsService: LeadsService) { }
 
   ngOnInit(): void {
   }
 
+  create() {
+    this.leadsService.create().subscribe((res) => { console.log(res)});
+  }
 }

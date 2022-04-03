@@ -5,10 +5,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeComponent } from './containers/employeee/employee.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { FilterComponent } from './components/filter/filter.component';
-import { EmployeeTableWrapperComponent } from './components/employee-table-wrapper/employee-table-wrapper.component';
+import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 import { DataTableComponent } from './components/data-table/data-table.component';
 import { ManagerComponent } from './containers/manager/manager.component';
-import { ManagerTableWrapperComponent } from './components/manager-table-wrapper/manager-table-wrapper.component';
 import { WidgetsModule } from "../../widgets/widgets.module";
 
 
@@ -18,10 +17,9 @@ import { WidgetsModule } from "../../widgets/widgets.module";
     EmployeeComponent,
     CounterComponent,
     FilterComponent,
-    EmployeeTableWrapperComponent,
+    TableWrapperComponent,
     DataTableComponent,
     ManagerComponent,
-    ManagerTableWrapperComponent
   ],
   imports: [
     CommonModule,

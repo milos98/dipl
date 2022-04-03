@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LeadModel } from "../../shared/models/lead.model";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from "@angular/forms";
+import { LeadsService } from "../../shared/leads/leads.service";
 
 @Component({
   selector: 'app-lead-info',
@@ -8,51 +9,47 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ['./lead-info.component.scss']
 })
 export class LeadInfoComponent implements OnInit {
-  @Input() leadData: LeadModel | undefined;
+  leadData: LeadModel;
 
-  public leadForm: FormGroup = this.formBuilder.group({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    title: '',
-    contactMethod: '',
-    company: '',
-    website: '',
-    address: '',
-    floor: '',
-    city: '',
-    zip: '',
-    followUpDate: '',
-    status: '',
-    statusFriendlyName: '',
-    pipeline: '',
-    notes: ''
-  });
+  public leadForm: FormGroup;
 
-  constructor( private formBuilder: FormBuilder ) {  }
+  constructor(
+      private leadsService: LeadsService
+  ) {  }
 
   ngOnInit(): void {
-    if(this.leadData != undefined) {
-      this.leadForm = this.formBuilder.group({
-        firstName: this.leadData.contact.firstName,
-        lastName: this.leadData.contact.lastName,
-        email: this.leadData.contact.email,
-        phone: this.leadData.contact.phone,
-        title: this.leadData.contact.title,
-        contactMethod: this.leadData.contact.contactMethod,
-        company: this.leadData.company.company,
-        website: this.leadData.company.website,
-        address: this.leadData.company.address,
-        floor: this.leadData.company.floor,
-        city: this.leadData.company.city,
-        zip: this.leadData.company.zip,
-        followUpDate: this.leadData.deal.followUpDate,
-        dealStage: this.leadData.deal.dealStage,
-        pipeline: this.leadData.deal.pipeline,
-        notes: this.leadData.deal.notes
-      });
-    }
+    this.leadData = this.leadsService.getSelectedLead();
+    this.leadForm = new FormGroup({
+      _id: new FormControl(this.leadData._id),
+      contact: new FormGroup({
+        firstName: new FormControl(this.leadData.contact.firstName),
+        lastName: new FormControl(this.leadData.contact.lastName),
+        email: new FormControl(this.leadData.contact.email),
+        phone: new FormControl(this.leadData.contact.phone),
+        title: new FormControl(this.leadData.contact.title),
+        contactMethod: new FormControl(this.leadData.contact.contactMethod)
+      }),
+      company: new FormGroup({
+        companyName: new FormControl(this.leadData.company.companyName),
+        website: new FormControl(this.leadData.company.website),
+        address: new FormControl(this.leadData.company.address),
+        floor: new FormControl(this.leadData.company.floor),
+        city: new FormControl(this.leadData.company.city),
+        zip: new FormControl(this.leadData.company.zip)
+      }),
+      deal: new FormGroup({
+        followUpDate: new FormControl(this.leadData.deal.followUpDate),
+        dealStage: new FormControl(this.leadData.deal.dealStage),
+        pipeline: new FormControl(this.leadData.deal.pipeline),
+        notes: new FormControl(this.leadData.deal.notes)
+      }),
+      accountManager: new FormControl(this.leadData.accountManager)
+    });
+
+    this.leadForm.valueChanges.subscribe(updatedInfo => {
+      console.log('form value changed')
+      this.leadsService.setSelectedLead(updatedInfo);
+    })
   }
 
 }

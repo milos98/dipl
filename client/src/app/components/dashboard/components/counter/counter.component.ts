@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { CategoryConstants } from "../../../../shared/constants/categories";
 
 @Component({
@@ -6,16 +6,14 @@ import { CategoryConstants } from "../../../../shared/constants/categories";
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss']
 })
-export class CounterComponent implements OnInit, OnChanges {
-  @Input() data: any;
+export class CounterComponent implements OnChanges {
+  @Input() count: any;
+  @Input() category: any;
+  @Input() selected: any;
 
   image = '';
 
   constructor() { }
-
-  ngOnInit() {
-    this.stylize();
-  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes) {
@@ -24,7 +22,7 @@ export class CounterComponent implements OnInit, OnChanges {
   }
 
   stylize() {
-    switch (this.data.category) {
+    switch (this.category) {
       case CategoryConstants.prospecting: this.image = 'assets/prospecting';
         break;
       case CategoryConstants.qualified : this.image = 'assets/mining-pick';
@@ -35,7 +33,7 @@ export class CounterComponent implements OnInit, OnChanges {
         break;
       default : this.image = '';
     }
-    if(this.data.selected) {
+    if(this.selected) {
       this.image = this.image + '-white.png';
     } else {
       this.image = this.image + '-red.png';

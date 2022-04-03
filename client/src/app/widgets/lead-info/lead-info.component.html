@@ -1,6 +1,6 @@
 <div class="info-wrapper" [formGroup]="leadForm">
     <h2>Contact information</h2>
-    <div class="row">
+    <div class="row" formGroupName="contact">
         <div class="input-group">
             <label for="first-name">First name</label>
             <input id="first-name" name="first-name" formControlName="firstName" type="text">
@@ -23,10 +23,10 @@
         </div>
     </div>
     <h2>Company information</h2>
-    <div class="row">
+    <div class="row" formGroupName="company">
         <div class="input-group">
             <label for="company">Company</label>
-            <input id="company" name="company" formControlName="company" type="text">
+            <input id="company" name="company" formControlName="companyName" type="text">
             <label for="address">Address</label>
             <input id="address" name="address" formControlName="address" type="text">
             <label for="city">City</label>
@@ -42,12 +42,12 @@
         </div>
     </div>
     <h2>Deal information</h2>
-    <div class="row">
+    <div class="row" formGroupName="deal">
         <div class="input-group">
             <label for="follow-up-date">Follow-up date</label>
             <input id="follow-up-date" name="follow-up-date" formControlName="followUpDate" type="date">
             <label for="deal-stage">Deal stage</label>
-            <select id="deal-stage" name="deal-stage" formControlName="status">
+            <select id="deal-stage" name="deal-stage" formControlName="dealStage">
                 <option disabled selected>Select the current stage of the lead</option>
                 <option value="prospecting">Prospecting</option>
                 <option value="qualified">Qualified</option>

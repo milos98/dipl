@@ -9,6 +9,8 @@ div {
     align-items: center;
     background-color: $color-secondary;
     color: $color-white;
+    box-shadow: 0 0 10px 2px $color-accent;
+    z-index: 1;
 
     span {
         font-size: 2rem;

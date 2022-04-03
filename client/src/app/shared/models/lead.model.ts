@@ -1,5 +1,5 @@
 export interface LeadModel {
-    id?: string;
+    _id?: string;
     contact: {
         firstName: string;
         lastName: string;
@@ -9,7 +9,7 @@ export interface LeadModel {
         contactMethod?: string;
     },
     company: {
-        company?: string;
+        companyName?: string;
         website?: string;
         address?: string;
         floor?: number;
@@ -17,10 +17,10 @@ export interface LeadModel {
         zip?: number;
     },
     deal: {
-        followUpDate: string;
+        followUpDate: string | null;
         dealStage: string;
         pipeline: number;
         notes?: string;
     },
-    accountManager?: string;
+    accountManager: string;
 }

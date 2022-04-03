@@ -1,4 +1,9 @@
-<div>
+<div *ngFor="let employee of data">
+    <div class="table-header">
+        <p>{{employee.firstName}} {{employee.lastName}}</p>
+        <p></p>
+    </div>
+    <hr>
     <div class="table-header">
         <p class="hidden-900">First name</p>
         <p class="hidden-650">Last name</p>
@@ -9,11 +14,8 @@
         <p class="hidden-1100 right">Pipeline</p>
         <p></p>
     </div>
-
     <hr>
-
-    <app-data-table [data]="dataSet"></app-data-table>
-
+    <app-data-table [data]="employee.leads" (selectedLead)="selectLead()"></app-data-table>
     <div class="table-footer">
         <p class="hidden-900"></p>
         <p class="hidden-650"></p>
@@ -21,7 +23,8 @@
         <p class="hidden-1400"></p>
         <p class="hidden-1100"></p>
         <p class="hidden-1100 center">Total pipeline: </p>
-        <p class="hidden-1100 right">{{ totalPipeline }} $</p>
+        <p class="hidden-1100 right">{{ employee.pipeline }} $</p>
         <p></p>
     </div>
+    <hr>
 </div>

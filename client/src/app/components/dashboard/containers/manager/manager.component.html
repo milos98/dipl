@@ -1,18 +1,28 @@
 <div class="root">
-    <div class="counters">
-        <app-counter
-                *ngFor="let counter of data"
-                [data]="counter"
-                (click)="toggleCategoryFilter(counter)">
-        </app-counter>
+    <div>
+        <div class="counters">
+            <app-counter
+                    *ngFor="let counter of counterData"
+                    [count]="counter.count"
+                    [category]="counter.category"
+                    [selected]="counter.selected"
+                    (click)="toggleCategoryFilter(counter)">
+            </app-counter>
+        </div>
+        <app-filter></app-filter>
+        <app-table-wrapper
+                [data]="data"
+                (selectedLead)="selectLead()">
+        </app-table-wrapper>
     </div>
-    <app-filter></app-filter>
-    <app-manager-table-wrapper></app-manager-table-wrapper>
-    <div class="shade" (click)="modalShow = !modalShow" *ngIf="modalShow"></div>
+    <div class="shade"
+         (click)="closeModal()"
+         *ngIf="modalShow">
+    </div>
     <ng-container *ngIf="modalShow">
         <div class="modal">
-            <app-lead-info [leadData]="selectedLead"></app-lead-info>
-            <button class="form-btn">Update lead</button>
+            <app-lead-info></app-lead-info>
+            <button class="form-btn" (click)="updateLead()">Update lead</button>
         </div>
     </ng-container>
 </div>

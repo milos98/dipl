@@ -13,6 +13,7 @@ import { AuthService } from "./shared/auth/auth.service";
 import { AuthGuard } from "./core/auth.guard";
 import { TokenInterceptorService } from "./core/token-interceptor.service";
 import { ErrorInterceptor } from "./core/error-interceptor.service";
+import { DatePipe } from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { ErrorInterceptor } from "./core/error-interceptor.service";
     providers: [
         AuthService,
         AuthGuard,
+        DatePipe,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,

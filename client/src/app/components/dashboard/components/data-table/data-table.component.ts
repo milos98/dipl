@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { LeadModel } from "../../../../shared/models/lead.model";
+import { LeadsService } from "../../../../shared/leads/leads.service";
 
 @Component({
   selector: 'app-data-table',
@@ -8,10 +9,16 @@ import { LeadModel } from "../../../../shared/models/lead.model";
 })
 export class DataTableComponent implements OnInit {
   @Input() data: LeadModel[] = [];
+  @Output() selectedLead = new EventEmitter();
 
-  constructor() { }
+  constructor(private leadsService: LeadsService) { }
 
   ngOnInit(): void {
+  }
+
+  selectLead(lead: LeadModel): void {
+    this.leadsService.setSelectedLead(lead);
+    this.selectedLead.emit();
   }
 
 }
