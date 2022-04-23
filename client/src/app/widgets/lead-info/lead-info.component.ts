@@ -47,7 +47,6 @@ export class LeadInfoComponent implements OnInit {
     });
 
     this.leadForm.valueChanges.subscribe(updatedInfo => {
-      console.log('form value changed')
       this.leadsService.setSelectedLead(updatedInfo);
     })
   }

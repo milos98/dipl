@@ -14,6 +14,11 @@ export class CreateLeadComponent implements OnInit {
   }
 
   create() {
-    this.leadsService.create().subscribe((res) => { console.log(res)});
+    this.leadsService.create().subscribe(
+        (res) => {
+          alert('Lead created!');
+          this.leadsService.resetSelectedlead();
+          window.location.reload();
+        });
   }
 }

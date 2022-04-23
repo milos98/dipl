@@ -59,7 +59,6 @@ export class LeadsService {
 
   create() {
     delete this.selectedLead._id;
-    console.log(this.selectedLead);
     return this.http.post(this.baseUrl, this.selectedLead);
   }
 
@@ -72,7 +71,6 @@ export class LeadsService {
   }
 
   update() {
-    console.log(this.selectedLead);
     const url = `${this.baseUrl}/${this.selectedLead._id}`
     return this.http.patch(url, this.selectedLead);
   }

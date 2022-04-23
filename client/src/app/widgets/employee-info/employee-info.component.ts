@@ -17,7 +17,6 @@ export class EmployeeInfoComponent implements OnInit {
 
   ngOnInit(): void {
     this.employeeData = this.employeesService.getSelectedEmployee();
-    console.log(this.employeeData);
     this.employeeForm = new FormGroup({
       _id: new FormControl(this.employeeData._id),
       firstName: new FormControl(this.employeeData.firstName, [Validators.required]),

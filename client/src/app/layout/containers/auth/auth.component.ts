@@ -34,7 +34,6 @@ export class AuthComponent implements OnInit {
             const url = `${(response.isAdmin) ? '/admin' : ''}`;
 
             localStorage.setItem('token', response.token);
-            console.log(response);
             this.authService.setData(response);
             this.router.navigate([url]);
           }
