@@ -24,7 +24,7 @@ const findAll = () => {
         {
            $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$userInfo", 0 ] }, "$$ROOT" ] } }
         },
-        { $unset: [ 'encryptedPassword', 'isSuspended', '__v', 'userInfo', 'isAdmin' ] }
+        { $unset: [ 'encryptedPassword', '__v', 'userInfo' ] }
     ]);
 };
 

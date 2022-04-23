@@ -23,7 +23,8 @@ const updateEmployee = (req, res) => {
         });
     }
 
-    // params.user_id = req.auth.user_id;
+    params.user_id = req.auth.user_id;
+    console.log(params);
 
     return EmployeesFacade.update(params, res);
 };

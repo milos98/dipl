@@ -42,7 +42,7 @@ const register = async (params, res) => {
         await Dals.users.update(userObject);
 
         // return new user
-        res.status(200).send('OK');
+        res.status(200).json('OK');
 
     } catch (err) {
         console.log(err);
