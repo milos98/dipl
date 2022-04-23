@@ -3,6 +3,7 @@ import { CounterModel } from "../../../../shared/models/counter.model";
 import { LeadsService } from "../../../../shared/leads/leads.service";
 import { EmployeeModel } from "../../../../shared/models/employee.model";
 import { DatePipe } from "@angular/common";
+import { EmployeesService } from "../../../../shared/employees/employees.service";
 
 @Component({
   selector: 'app-manager',
@@ -18,6 +19,7 @@ export class ManagerComponent implements OnInit {
   counterData: CounterModel[];
 
   constructor(
+      private employeesService: EmployeesService,
       private leadsService: LeadsService,
       private datePipe: DatePipe
   ) { }
@@ -28,6 +30,7 @@ export class ManagerComponent implements OnInit {
 
   ngOnChanges(changes: SimpleChanges) {
     if(changes) {
+      this.employeesService.resetSelectedEmployee();
       this.leadsService.resetSelectedlead();
       this.fetchData();
     }
@@ -39,7 +42,7 @@ export class ManagerComponent implements OnInit {
       this.data = res;
       this.data.forEach((employee) => {
         let totalPipeline = 0;
-        employee.leads.forEach((lead) => {
+        employee.leads!.forEach((lead) => {
           this.counterData.forEach((counter) => {
             if (counter.category === lead.deal.dealStage) {
               counter.count += 1;
@@ -72,7 +75,6 @@ export class ManagerComponent implements OnInit {
   updateLead() {
     this.leadsService.update().subscribe(
         () => {
-          console.log('hdtgfjhkjk');
           this.closeModal();
         }
     );
