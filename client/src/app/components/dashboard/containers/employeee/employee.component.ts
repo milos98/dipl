@@ -13,6 +13,7 @@ import { EmployeesService } from "../../../../shared/employees/employees.service
 export class EmployeeComponent implements OnInit, OnChanges {
 
   modalShow = false;
+  modalType = '';
   selectedCategory = '';
 
   data: EmployeeModel[];
@@ -70,6 +71,12 @@ export class EmployeeComponent implements OnInit, OnChanges {
 
   selectLead(): void {
     this.modalShow = true;
+    this.modalType = 'lead';
+  }
+
+  selectEmployee(): void {
+    this.modalShow = true;
+    this.modalType = 'employee';
   }
 
   updateLead() {
@@ -80,9 +87,19 @@ export class EmployeeComponent implements OnInit, OnChanges {
     );
   }
 
+  updateEmployee() {
+    this.employeesService.update().subscribe(
+        () => {
+          this.closeModal();
+        }
+    );
+  }
+
   closeModal() {
     this.modalShow = !this.modalShow;
+    this.modalType = '';
     this.leadsService.resetSelectedlead();
+    this.employeesService.resetSelectedEmployee();
     this.fetchData();
   }
 

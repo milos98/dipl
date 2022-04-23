@@ -8,6 +8,12 @@
   text-align: right;
 }
 
+.name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: $color-accent;
+}
+
 div {
   background-color: $color-secondary;
   margin: 4rem 0;

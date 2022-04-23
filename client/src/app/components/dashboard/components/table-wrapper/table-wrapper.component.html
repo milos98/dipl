@@ -1,7 +1,6 @@
 <div *ngFor="let employee of data">
-    <div class="table-header">
+    <div class="table-header name" (click)="selectEmployee(employee)">
         <p>{{employee.firstName}} {{employee.lastName}}</p>
-        <p></p>
     </div>
     <hr>
     <div class="table-header">

@@ -42,9 +42,9 @@ export class EmployeesService {
         .post(this.baseUrl, this.selectedEmployee);
   }
 
-  update(employeeObject: EmployeeModel) {
-    const url = `${this.baseUrl}/${employeeObject._id}`;
+  update() {
+    const url = `${this.baseUrl}/${this.selectedEmployee._id}`;
     return this.http
-        .patch(url, employeeObject);
+        .patch(url, this.selectedEmployee);
   }
 }
