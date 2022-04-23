@@ -16,6 +16,12 @@ export class ErrorInterceptor implements HttpInterceptor {
           if (err.status === 401) {
             this.authService.logout();
           }
+          else if (err.status >= 400 && err.status < 500){
+              alert(err.error.message);
+          }
+          else {
+              alert('Error occurred, please contact your administrator!');
+          }
           return throwError(err);
         })
     );
