@@ -16,7 +16,7 @@ const create = (req, res) => {
         email: req.body.email,
         password: req.body.password,
         isAdmin: req.body.isAdmin,
-        isSuspended: req.body.isSuspended
+        isSuspended: req.body.isSuspended || false
     };
 
     return EmployeesFacade.create(params, res);

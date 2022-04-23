@@ -31,7 +31,7 @@ const create = async (params, res) => {
         const user = await Dals.users.create(userObject);
 
         // return new user
-        res.status(200).send(`User with email ${user.email} successfully created!`);
+        res.status(200).json(`User with email ${user.email} successfully created!`);
 
     } catch (err) {
         console.log(err);
