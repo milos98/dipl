@@ -1,7 +1,19 @@
 export interface CounterModel {
-    count: number;
-    category: string;
-    categoryFriendlyName?: string;
-    selected: boolean;
+    [prospecting:string]: {
+        count: number;
+        selected: boolean;
+    },
+    qualified: {
+        count: number;
+        selected: boolean;
+    },
+    quoting: {
+        count: number;
+        selected: boolean;
+    },
+    won_closed: {
+        count: number;
+        selected: boolean;
+    }
 }
 

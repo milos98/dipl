@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmployeeComponent } from "./components/dashboard/containers/employeee/employee.component"
+import { DashboardComponent } from "./components/dashboard/containers/dashboard/dashboard.component"
 import { CreateLeadComponent } from "./components/creation-form/containers/create-lead/create-lead.component";
-import { ManagerComponent } from "./components/dashboard/containers/manager/manager.component";
 import {
     CreateEmployeeComponent
 } from "./components/creation-form/containers/create-employee/create-employee.component";
@@ -28,7 +27,7 @@ const routes: Routes = [
             },
             {
                 path: 'dashboard',
-                component: EmployeeComponent
+                component: DashboardComponent
             },
             {
                 path: 'new-lead',
@@ -45,7 +44,7 @@ const routes: Routes = [
                     },
                     {
                         path: 'dashboard',
-                        component: ManagerComponent
+                        component: DashboardComponent
                     },
                     {
                         path: 'new-lead',
