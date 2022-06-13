@@ -35,6 +35,15 @@ div {
       font-weight: bold;
       width: 11rem;
     }
+
+    button {
+      color: $color-white;
+      background-color: $color-accent;
+      border: 0;
+      border-radius: 1rem;
+      padding: 0.6rem;
+      cursor: pointer;
+    }
   }
 
   hr {
