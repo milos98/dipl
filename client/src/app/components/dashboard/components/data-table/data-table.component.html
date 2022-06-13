@@ -4,7 +4,7 @@
             <td class="hidden-650">{{ row.contact.lastName }}</td>
             <td class="hidden-1400">{{ row.contact.phone }}</td>
             <td class="hidden-1100">{{ row.contact.email }}</td>
-            <td class="hidden-1650 capitalise"> <span class="status" [ngClass]="row.deal.dealStage"></span>{{ row.deal.dealStage }}</td>
+            <td class="hidden-1650 capitalise"> <span class="status" [ngClass]="row.deal.dealStage"></span>{{ row.deal.dealStage.replace('_','/') }}</td>
             <td class="center">{{ row.deal.followUpDate }}</td>
             <td class="hidden-1100 right">{{ row.deal.pipeline }} $</td>
             <td class="center"><button (click)="selectLead(row)">Details</button></td>

@@ -1,7 +1,7 @@
 <div class="container" [ngClass]="selected ? 'selected' : ''">
     <div>
         <p class="number">{{ count }}</p>
-        <p class="name">{{ category }}</p>
+        <p class="name">{{ category.replace('_','/') }}</p>
     </div>
     <img [src]="image + '?lastmod=newTimeStamp'" alt="">
 </div>
