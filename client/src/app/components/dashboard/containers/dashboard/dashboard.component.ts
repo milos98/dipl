@@ -3,6 +3,7 @@ import { CounterModel } from "../../../../shared/models/counter.model";
 import { LeadsService } from "../../../../shared/leads/leads.service";
 import { EmployeeModel } from "../../../../shared/models/employee.model";
 import { EmployeesService } from "../../../../shared/employees/employees.service";
+import { FilterModel } from 'src/app/shared/models/filter.model';
 
 @Component({
   selector: 'app-employee',
@@ -33,10 +34,9 @@ export class DashboardComponent implements OnInit, OnChanges {
     }
   }
 
-  fetchData(filter = { }) {
+  fetchData() {
     this.leadsService.getAll(location.href).subscribe((res) => {
-      this.leadsService.filter(res);
-      this.data = this.leadsService.leadData;
+      this.data = this.leadsService.transformLeadObject(res);
       this.counterData = this.leadsService.counterData;
     });
   }
@@ -54,6 +54,11 @@ export class DashboardComponent implements OnInit, OnChanges {
   selectEmployee(): void {
     this.modalShow = true;
     this.modalType = 'employee';
+  }
+
+  setFilters(filter: FilterModel) {
+    this.leadsService.setFilter(filter);
+    this.fetchData();
   }
 
   updateLead() {

@@ -1,12 +1,13 @@
+const Helpers = require('../helpers');
 const Dals = require('../../dals');
 
 const getAllUsersLeads = async (params, res) => {
     try {
         // Get user's info
-        const { user_id } = params;
+        const { filter, user_id } = params;
 
         // get all user-lead objects
-        const leads = await Dals.leads.findByAccountManager(user_id);
+        const leads = await Dals.leads.findByAccountManager(user_id, Helpers.cleanse(filter));
         if (!leads) {
           return res.status(404).send("There are no leads!");
         }

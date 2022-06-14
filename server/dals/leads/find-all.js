@@ -1,11 +1,12 @@
+// @ts-nocheck
 const Model = require('./model');
 
-const findAll = () => {
+const findAll = (filter) => {
 
     const model = Model.model();
 
     return model.aggregate([
-        { '$match': { _id : {$exists: true} } },
+        { '$match': { _id : {$exists: true}, ...filter } },
         {
             $group: {
                 _id: '$accountManager',

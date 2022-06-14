@@ -7,6 +7,7 @@ import { LeadModel } from "../models/lead.model";
 import { EmployeeModel } from "../models/employee.model";
 import { DatePipe } from "@angular/common";
 import { CounterModel } from "../models/counter.model";
+import { FilterModel } from '../models/filter.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +15,10 @@ import { CounterModel } from "../models/counter.model";
 export class LeadsService {
   private readonly baseUrl = `${environment.apiUrl}/leads`;
 
-  private fetchedData: EmployeeModel[];
-  private filteredData: EmployeeModel[];
   private selectedLead: LeadModel;
   private counters: CounterModel;
   private selectedCategories: string[] = [];
-  private filters = {};
+  private filter: FilterModel | undefined;
 
   constructor(
       private http: HttpClient,
@@ -49,21 +48,19 @@ export class LeadsService {
     };
   }
 
-  filter(employees: EmployeeModel[]) {
+  transformLeadObject(employees: EmployeeModel[]) {
     this.counterReset();
-    this.fetchedData = employees;
-    this.filteredData = this.fetchedData.map((employee) => {
+    return employees.map((employee) => {
       let totalPipeline = 0;
-      employee.leads = employee.leads!.filter((lead) => {
+      employee.pipeline = totalPipeline;
+
+      employee.leads!.forEach((lead) => {
         this.counterData[lead.deal.dealStage].count += 1;
-        if (this.selectedCategories.length !== 0 && !this.selectedCategories.includes(lead.deal.dealStage)) {
-          return false;
-        }
         lead.deal.followUpDate = this.datePipe.transform(lead.deal.followUpDate, 'yyyy-MM-dd');
         totalPipeline += lead.deal.pipeline;
         return true;
       });
-      employee.pipeline = totalPipeline;
+
       return employee;
     });
   }
@@ -81,10 +78,6 @@ export class LeadsService {
     }
   }
 
-  get leadData(): EmployeeModel[] {
-    return this.filteredData;
-  }
-
   get counterData() {
     return this.counters;
   }
@@ -95,6 +88,10 @@ export class LeadsService {
 
   setSelectedLead(lead: LeadModel) {
     this.selectedLead = lead;
+  }
+
+  setFilter(filter: FilterModel | undefined) {
+    this.filter = filter;
   }
 
   resetSelectedlead() {
@@ -126,6 +123,24 @@ export class LeadsService {
     };
   }
 
+  queryStringMaker() {
+    let query = '';
+    if(this.filter !== undefined) {
+      query += Object.keys(this.filter).map((key) => {
+        return encodeURIComponent(key) + '=' + encodeURIComponent(this.filter![key as keyof FilterModel]);
+      }).join('&');
+    }
+    if(this.selectedCategories.length > 0) {
+      if(query) {
+        query += '&';
+      }
+      query += this.selectedCategories.map((selecetdCategory) => {
+        return `dealStage=${selecetdCategory}`;
+      }).join('&');
+    }
+    return query;
+  }
+
   create() {
     delete this.selectedLead._id;
     return this.http.post(this.baseUrl, this.selectedLead);
@@ -133,8 +148,12 @@ export class LeadsService {
 
   getAll(location: string): Observable<EmployeeModel[]> {
     let url = this.baseUrl;
+    let query = this.queryStringMaker();
     if(location.indexOf('admin') === -1) {
       url = url + '/me';
+    };
+    if(query.length > 0) {
+      url += `?${query}`;
     }
     return this.http.get<EmployeeModel[]>(url);
   }

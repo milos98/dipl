@@ -1,14 +1,14 @@
 const Mongoose = require('mongoose');
 const Model = require('./model');
 
-const findByAccountManager = (id) => {
+const findByAccountManager = (id, filter) => {
 
     const model = Model.model();
 
     const objId = Mongoose.Types.ObjectId(id);
 
     return model.aggregate([
-        { '$match': { accountManager : objId } },
+        { '$match': { accountManager : objId, ...filter } },
         {
             $group: {
                 _id: '$accountManager',

@@ -1,33 +1,38 @@
 <div>
     <p>Filter by:</p>
     <form [formGroup]="filterForm">
-
-        <input id="first-name"
-               type="text"
-               placeholder="First name"
-               formControlName="firstName">
-        <input id="last-name"
-               type="text"
-               placeholder="First name"
-               formControlName="lastName">
-        <input id="follow-up-date"
-               type="date"
-               formControlName="followUpDate"
-               (change)="onSubmit()">
-        <input id="pipeline"
-               type="number"
-               min="0"
-               step="any"
-               placeholder="Pipeline"
-               formControlName="pipeline"
-               (change)="onSubmit()">
-        <input id="phone"
-               type="text"
-               placeholder="Phone"
-               formControlName="phone">
-        <input id="email"
-               type="text"
-               placeholder="Email"
-               formControlName="email">
+        <ng-container>
+            <input id="first-name"
+                   type="text"
+                   placeholder="First name"
+                   formControlName="firstName">
+            <input id="last-name"
+                   type="text"
+                   placeholder="Last name"
+                   formControlName="lastName">
+        </ng-container>
+        <ng-container>
+            <input id="follow-up-date"
+                   type="date"
+                   formControlName="followUpDate"
+                   (change)="onSubmit()">
+            <input id="pipeline"
+                   type="number"
+                   min="0"
+                   step="any"
+                   placeholder="Pipeline"
+                   formControlName="pipeline"
+                   (change)="onSubmit()">
+        </ng-container>
+        <ng-container>
+            <input id="phone"
+                   type="text"
+                   placeholder="Phone"
+                   formControlName="phone">
+            <input id="email"
+                   type="text"
+                   placeholder="Email"
+                   formControlName="email">
+        </ng-container>
     </form>
 </div>
