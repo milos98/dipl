@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup } from "@angular/forms";
 
 import { FilterModel } from "../../../../shared/models/filter.model";
 
@@ -11,13 +11,13 @@ import { FilterModel } from "../../../../shared/models/filter.model";
 export class FilterComponent {
   @Output() filter = new EventEmitter<FilterModel>();
 
-  filterForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl(''),
-    pipeline: new FormControl(''),
-    followUpDate: new FormControl('')
+  filterForm = new UntypedFormGroup({
+    firstName: new UntypedFormControl(''),
+    lastName: new UntypedFormControl(''),
+    phone: new UntypedFormControl(''),
+    email: new UntypedFormControl(''),
+    pipeline: new UntypedFormControl(''),
+    followUpDate: new UntypedFormControl('')
   });
 
   constructor() { }

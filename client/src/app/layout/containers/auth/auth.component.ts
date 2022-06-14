@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../../shared/auth/auth.service";
-import { FormBuilder } from "@angular/forms";
+import { UntypedFormControl, UntypedFormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 @Component({
@@ -11,23 +11,27 @@ import { Router } from "@angular/router";
 export class AuthComponent implements OnInit {
 
   errorMessage: string = '';
-  authForm = this.fb.group({
-    email: this.fb.control(''),
-    password: this.fb.control('')
+  authForm = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required, Validators.minLength(6)])
   });
 
   constructor(private authService: AuthService,
-              private fb: FormBuilder,
               private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  get email() { return this.authForm.get('email'); };
+
+  get password() { return this.authForm.get('password'); };
+
   authenticate(): void {
     const params = {
-      email: this.authForm.get('email')?.value,
-      password: this.authForm.get('password')?.value
+      email: this.email?.value,
+      password: this.password?.value
     }
+
     this.authService.login(params).subscribe(
         (response) => {
           if (response.token) {
