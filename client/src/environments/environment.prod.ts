@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://dipl-milos98-server.herokuapp.com'
 };
