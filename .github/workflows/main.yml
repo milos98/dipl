@@ -20,8 +20,6 @@ jobs:
         cd client
         npm install
         npm run-script build
-      env:
-        REACT_APP_APIKey: ${{ secrets.apiUrl }}
 
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
